@@ -273,6 +273,7 @@ export class PopupManager {
         .replaceAll(/(\\begin\{[^}]+\})/g, '\n$1\n') // `\begin` command on separate line
         .replaceAll(/(\\end\{[^}]+\})/g, '\n$1\n')
         .replaceAll(/\n+/g, '\n') // Trim extra `\n` between `\end` and `\begin`
+        .replaceAll('\\placeholder\{\}', '') // remove empty placeholders
         .trim() // Trim extra `\n` at beginning
     }
     return this.delim === '$'
